@@ -1,5 +1,5 @@
 var astterlive, asttercore;
-const contract_address = "0x11C8Fa38a4302a476088d95b51918A341b19C2c6";
+const contract_address = "0x8b0188d3B5A83675081eE2DCf942F6DBdce32a88";
 var accounts;
 var source = document.getElementById('video_source');
 var connectBtn = document.getElementById('connect');
@@ -41,12 +41,15 @@ async function load() {
         Authorization: "Bearer 81b64de2-c0ef-4d95-a066-6dacbaf6f427",
         },
     })
-    .then((res) => {
+    .then(async (res) => {
         data = res.data;
         console.log(data);
 
         source.src = "https://lvpr.tv?v="+data['playbackId'];
         document.getElementById('name').innerText = data['name'];
+
+        var streamer = await astterlive.methods.getStreamer(id).call({from: accounts[0]});
+        document.getElementById('streamer').innerText = streamer;
     })
     .catch((error) => {
         console.log(error);
@@ -100,11 +103,11 @@ var firebaseConfig = {
 
   fetchChat.on("child_added", function (snapshot) {
     const messages = snapshot.val();
-    var m = messages.acc.substring(0,4) + "..." + messages.acc.substring(37,42)+"\n";
+    var m = messages.acc.substring(0,4) + "..." + messages.acc.substring(37,42);
     const message = `<li>
     <div class="vcp_inf">
         <div class="coments">
-            <h2>${m}<small class="posted_dt">${messages.message}</small></h2>
+            <h2>${m}:<small class="posted_dt">  ${messages.message}</small></h2>
         </div><!--coments end-->
     </div><!--vcp_inf end-->
     </li>`;

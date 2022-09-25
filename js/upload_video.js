@@ -1,5 +1,5 @@
 var astterlive, astterliveabi;
-const contract_address = "0xd4708cCC178b698cC883aFaCA9A6f2Ef1224Ee6c";
+const contract_address = "0x8b0188d3B5A83675081eE2DCf942F6DBdce32a88";
 var accounts, hasStream;
 
 var connectBtn = document.getElementById('connect');
@@ -29,7 +29,7 @@ async function load() {
 startStream.addEventListener('click', async (e) => {
     e.preventDefault();
     if(hasStream) {
-        var stream = await astterlive.methods.getStreamforUser().from({from: accounts[0]});
+        var stream = await astterlive.methods.getStreamforUser().call({from: accounts[0]});
         window.open('/stream_page.html?id='+stream[1], "_self");
     }else{
         window.open('/upload_edit.html', "_self");

@@ -36,7 +36,7 @@ contract AstterLive{
     function createStream(string[] memory streamData, string[][] memory profiles) external{
         require(!hasStream(msg.sender), "User has an active stream. Please fetch streamId and create a session");
         userStream[msg.sender] = Stream(streamData[0], streamData[1]);
-        streamIdToUser[streamData[0]] = msg.sender;
+        streamIdToUser[streamData[1]] = msg.sender;
 
         Profile[] storage prof = userProfiles[msg.sender];
         for(uint i = 0; i<profiles.length; i++) {

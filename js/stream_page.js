@@ -10,18 +10,12 @@ console.log(id);
 
 let stream;
 async function setup() {
-  /*stream = await navigator.mediaDevices.getUserMedia({
+  stream = await navigator.mediaDevices.getUserMedia({
     video: true,
     audio: true,
-  });*/
-
-  navigator.mediaDevices.getUserMedia({
-    video: true,
-    audio: true,
-  }).then(function success(stream) {
-    video.srcObject = stream;
   });
 
+  video.srcObject = stream;
   video.play();
 }
 

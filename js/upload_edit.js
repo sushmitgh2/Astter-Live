@@ -3,7 +3,7 @@ var video_title = document.getElementById('video-title');
 var save = document.getElementById('save');
 
 var astterlive, astterliveabi;
-const contract_address = "0xd4708cCC178b698cC883aFaCA9A6f2Ef1224Ee6c";
+const contract_address = "0x8b0188d3B5A83675081eE2DCf942F6DBdce32a88";
 var accounts;
 
 async function load() {
@@ -124,6 +124,7 @@ save.addEventListener('click', async () => {
     })
     .on('receipt', function(receipt){
         console.log(receipt);
+        window.open('/stream_page.html?id='+res['id'], "_self");
     })
     .on('confirmation', function(confirmationNumber, receipt){ 
     })
