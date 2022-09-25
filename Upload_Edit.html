@@ -15,6 +15,10 @@
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <link rel="stylesheet" type="text/css" href="css/responsive.css">
 <link rel="stylesheet" type="text/css" href="css/color.css">
+
+<script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
 <style>
 .btn5
 {      
@@ -64,7 +68,7 @@
 						
 						<ul class="controls-lv">
 							<li style="margin-top: 3.5%;">
-								<a title="" class="btn-default">Connect Wallet</a>
+								<button title="" class="btn-default" id="connect">Connect Wallet</a>
 							</li>
 							
 						</ul><!--controls-lv end-->
@@ -83,7 +87,7 @@
 		<div class="container">
 			<form>
 				<div class="vid-title">
-					<h2 class="title-hd">Video Title </h2>
+					<h2 id="video-title" class="title-hd">Video Title </h2>
 					<div class="form_field">
 						<input type="text" placeholder="Add here (99 characters remaining)">
 					</div>
@@ -115,46 +119,10 @@
 								</div>
 							</div><!--option end-->
 						</div>
-						<div class="col-lg-3 col-md-3 col-sm-6 col-12">
-							<div class="option">
-								<h2 class="title-hd">Select Stream Key</h2>
-								<div class="form_field">
-									<select>
-										<option>Public</option>
-										<option>Public</option>
-										<option>Public</option>
-										<option>Public</option>
-									</select>
-									<a href="#" title="" class="arw_vz">
-										<svg width="24" height="26" viewBox="0 0 24 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-											<path fill-rule="evenodd" clip-rule="evenodd" d="M19.9394 7.51447L22.0607 9.63579L12 19.6964L1.93936 9.63579L4.06068 7.51447L12 15.4538L19.9394 7.51447Z" fill="#9494A0"></path>
-										</svg>
-									</a>
-								</div>
-							</div><!--option end-->
-						</div>
-						<div class="col-lg-3 col-md-3 col-sm-6 col-12">
-							<div>
-								<h2 class="title-hd">Stream Key (Paste in encoder) </h2>
-								<div>
-									<div>
-									xtsu-x9g5-qx9s-tsa-esa1	
-									</div>
-									
-								</div>
-							</div><!--option end-->
-						</div>
-						<div class="col-lg-3 col-md-3 col-sm-6 col-12">
-							<div class="option">
-								<h2 class="title-hd">Stream URL </h2>
-								<div>
-									rtmp://a.rtmp.ajshshh/live2
-								</div>
-							</div><!--option end-->
-						</div>
+						
 					</div>
 				</div><!--cls-vidz end-->
-				<center><button class="btn5 btn5-01" style="margin-top: 5%;">Save</button></center>
+				<center><div id="save" class="btn5 btn5-01" style="margin-top: 5%;">Save</div></center>
 			
 			</form>
 
@@ -170,7 +138,7 @@
 
 
 
-
+<script src="./js/upload_edit.js"></script>
 <script src="js/jquery.min.js"></script>
 <script src="js/popper.js"></script>
 <script src="js/bootstrap.min.js"></script>

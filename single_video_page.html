@@ -16,6 +16,9 @@
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <link rel="stylesheet" type="text/css" href="css/responsive.css">
 <link rel="stylesheet" type="text/css" href="css/color.css">
+<script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js" integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 </head>
 <body>
@@ -37,7 +40,7 @@
 						
 						<ul class="controls-lv">
 							<li style="margin-top: 3.5%;">
-								<a title="" class="btn-default">Connect Wallet</a>
+								<div title="" class="btn-default" id="connect">Connect Wallet</div>
 							</li>
 							<li style="margin-top: 3.5%;">
 								<a href="Upload_Video.html" title="" class="btn-default">Stream</a>
@@ -89,26 +92,17 @@
 					<div class="mn-vid-sc single_video">
 						<div class="vid-1">
 							<div class="vid-pr">
-								<video
-								    id="my-video"
-								    class="video-js"
-								    controls
-								    preload="auto"
-								    width="640"
-								    height="264"
-								    poster="images/resources/poster-img.jpg"
-								    data-setup="{}"
-								  >
-								    <source src="demo_video.mp4" type="video/mp4" />
-								    <source src="demo_video.webm" type="video/webm" />
-								</video>
+								<iframe
+									id="video_source"
+									src=""
+									frameborder="0"
+									allowfullscreen
+									allow="autoplay; encrypted-media; picture-in-picture"
+									sandbox="allow-scripts">
+								</iframe>
 							</div><!--vid-pr end-->
 							<div class="vid-info">
 								<h3>Kingdom Come: Deliverance Funny Moments and Fails Compilation</h3>
-								<div class="info-pr">
-									<span>60,723,169 views</span>
-									<div class="clearfix"></div>
-								</div><!--info-pr end-->
 							</div><!--vid-info end-->
 						</div><!--vid-1 end-->
 						<div class="abt-mk">
@@ -118,8 +112,7 @@
 										<img src="images/resources/th5.png" alt="">
 									</div>
 									<div class="vc_info pr">
-										<h4><a href="#" title="">ScereBro</a></h4>
-										<span>Streamed on Oct 22, 2017</span>
+										<h4><div >ScereBro</div></h4>
 									</div>
 								</div><!--vcp_inf end-->							
 								
@@ -184,6 +177,8 @@
 
 
 </div><!--wrapper end-->
+
+<script src="./js/single_video_page.js"></script>
 
 
 

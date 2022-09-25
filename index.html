@@ -16,6 +16,9 @@
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <link rel="stylesheet" type="text/css" href="css/responsive.css">
 <link rel="stylesheet" type="text/css" href="css/color.css">
+<script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
 
 </head>
 
@@ -41,7 +44,7 @@
 						
 						<ul class="controls-lv">
 							<li style="margin-top: 3.5%;">
-								<a title="" class="btn-default">Connect Wallet</a>
+								<button title="" class="btn-default" id="connect">Connect Wallet</button>
 							</li>
 							<li style="margin-top: 3.5%;">
 								<a href="Upload_Video.html" title="" class="btn-default">Stream</a>
@@ -93,73 +96,7 @@
 					<div class="vidz_sec">
 						<h3>Live Now</h3>
 						<div class="vidz_list">
-							<div class="row">
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">
-									<div class="videoo">
-										<div class="vid_thumbainl">
-											<a href="single_video_page.html" title="">
-												<img src="images/resources/vide1.png" alt="">
-												<span class="vid-time">10:21</span>
-												
-											</a>	
-										</div><!--vid_thumbnail end-->
-										<div class="video_info">
-											<h3><a href="single_video_page.html" title="">Kingdom Come: Deliverance Funny Moments and Fails</a></h3>
-											<h4><a href="Single_Channel_Home.html" title="">newfox media</a></h4>
-											<span>686K views .</span>
-										</div>
-									</div><!--videoo end-->
-								</div>
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">
-									<div class="videoo">
-										<div class="vid_thumbainl">
-											<a href="single_video_page.html" title="">
-												<img src="images/resources/vide2.png" alt="">
-												<span class="vid-time">13:49</span>
-												
-											</a>	
-										</div><!--vid_thumbnail end-->
-										<div class="video_info">
-											<h3><a href="single_video_page.html" title="">DR DISRESPECT - Before They Were Famous - Twitch Streamer</a></h3>
-											<h4><a href="Single_Channel_Home.html" title="">Eros Now</a> </h4>
-											<span>283K views .<small class="posted_dt">3 months ago</small></span>
-										</div>
-									</div><!--videoo end-->
-								</div>
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">
-									<div class="videoo">
-										<div class="vid_thumbainl">
-											<a href="single_video_page.html" title="">
-												<img src="images/resources/vide3.png" alt="">
-												<span class="vid-time">2:54</span>
-												
-											</a>	
-										</div><!--vid_thumbnail end-->
-										<div class="video_info">
-											<h3><a href="single_video_page.html" title="">Top Perectly Timed Twitch Moments 2017 #7</a></h3>
-											<h4><a href="Single_Channel_Home.html" title="">Animal Planet</a> <span class="verify_ic"></span></h4>
-											<span>2.6M views .<small class="posted_dt">2 months ago</small></span>
-										</div>
-									</div><!--videoo end-->
-								</div>
-								<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth">
-									<div class="videoo">
-										<div class="vid_thumbainl">
-											<a href="single_video_page.html" title="">
-												<img src="images/resources/vide4.png" alt="">
-												<span class="vid-time">5:25</span>
-												
-											</a>	
-										</div><!--vid_thumbnail end-->
-										<div class="video_info">
-											<h3><a href="single_video_page.html" title="">Top 5 Amazing Bridge Block ever in PUBG</a></h3>
-											<h4><a href="Single_Channel_Home.html" title="">Maketzi</a> </h4>
-											<span>612K views .<small class="posted_dt">5 months ago</small></span>
-										</div>
-									</div><!--videoo end-->
-								</div>
-								
-								
+							<div class="row" id="live">								
 								
 							</div>
 						</div><!--vidz_list end-->
@@ -250,6 +187,8 @@
 		
 
 	</div><!--wrapper end-->
+
+	<script src="./js/index.js"></script>
 
 
 

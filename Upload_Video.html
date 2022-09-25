@@ -15,6 +15,8 @@
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <link rel="stylesheet" type="text/css" href="css/responsive.css">
 <link rel="stylesheet" type="text/css" href="css/color.css">
+<script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
 
@@ -34,7 +36,7 @@
 						
 						<ul class="controls-lv">
 							<li style="margin-top: 3.5%;">
-								<a title="" class="btn-default">Connect Wallet</a>
+								<button title="" id="connect" class="btn-default">Connect Wallet</button>
 							</li>
 							
 						</ul><!--controls-lv end-->
@@ -58,11 +60,11 @@
 							<h3>Are you all set</h3>
 							<span>to start your stream?</span>
 							<form>
-								<a href="Upload_Edit.html">
+								<div id="start">
 								<label for="file-upload" class="custom-file-upload">
 								    Start Streaming
 								</label>
-							</a>
+								</div>
 							</form>
 						</div><!--video-file end-->
 					</div>
@@ -76,7 +78,7 @@
 
 
 
-
+<script src="js/upload_video.js"></script>
 <script src="js/jquery.min.js"></script>
 <script src="js/popper.js"></script>
 <script src="js/bootstrap.min.js"></script>
