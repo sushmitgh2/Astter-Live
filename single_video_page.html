@@ -144,29 +144,13 @@
 									<div class="clearfix"></div>
 								</div><!--vcp_inf end-->
 							</div><!--cmt-bx end-->
-							<ul class="cmn-lst">
-								<li>
-									<div class="vcp_inf">
-										<div class="coments">
-											<h2>ScereBro<small class="posted_dt">Comment goes here</small></h2>
-										</div><!--coments end-->
-									</div><!--vcp_inf end-->
-								</li>
-								<li>
-									<div class="vcp_inf">
-										<div class="coments">
-											<h2>ScereBro<small class="posted_dt">Comment goes here</small></h2>
-										</div><!--coments end-->
-									</div><!--vcp_inf end-->
-								</li>
-								<li>
-									<div class="vcp_inf">
-										<div class="coments">
-											<h2>ScereBro<small class="posted_dt">Comment goes here</small></h2>
-										</div><!--coments end-->
-									</div><!--vcp_inf end-->
-								</li>
+							<ul class="cmn-lst" id="messages">
+								
 							</ul><!--comment list end-->
+							<center><form id="message-form">
+								<input id="message-input" type="text" />
+								<button id="message-btn" type="submit">Send</button>
+							</form></center>
 						</div>
 						
 					</div><!--side-bar end-->
@@ -177,16 +161,15 @@
 
 
 </div><!--wrapper end-->
-
+<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.2.1/firebase-database.js"></script>
 <script src="./js/single_video_page.js"></script>
-
-
-
 <script src="js/jquery.min.js"></script>
 <script src="js/popper.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/video.js"></script>
 <script src="js/script.js"></script>
+
 
 </body>
 </html>
