@@ -13,7 +13,7 @@ async function load() {
         connectBtn.innerText = accounts[0].substring(0,4) + "..." +accounts[0].substring(38, 42);
     }
 
-    await fetch('AstterLive.json')
+    await fetch('build/contracts/AstterLive.json')
         .then(response => response.json())
         .then(data => {
             astterliveabi = data.abi;
@@ -26,10 +26,11 @@ async function load() {
     console.log(hasStream);
 }
 
-startStream.addEventListener('click', (e) => {
+startStream.addEventListener('click', async (e) => {
     e.preventDefault();
     if(hasStream) {
-        window.open('/index.html', "_self");
+        var stream = await astterlive.methods.getStreamforUser().from({from: accounts[0]});
+        window.open('/stream_page.html?id='+stream[1], "_self");
     }else{
         window.open('/upload_edit.html', "_self");
     }
