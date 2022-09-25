@@ -3,13 +3,12 @@ const button = document.getElementById("button");
 video.volume = 0;
 const { Client } = webRTMP;
 
+var astterlive;
+const contract_address = "0x795A5291643354a371FCeb5ae770c2A821920839";
+
 async function load() {
   web3 = new Web3(window.ethereum);
   accounts = await web3.eth.getAccounts();
-  if(accounts[0] != undefined) {
-      //0x0eE25Ea9CdAEAB823F12d3Ef18C097f413E369D7
-      connectBtn.innerText = accounts[0].substring(0,4) + "..." +accounts[0].substring(38, 42);
-  }
 
   await fetch('../build/contracts/AstterLive.json')
       .then(response => response.json())
@@ -18,7 +17,6 @@ async function load() {
   });
 
   astterlive = new web3.eth.Contract(astterliveabi, contract_address);
-
   console.log(accounts);
 }
 
@@ -49,7 +47,7 @@ button.onclick = async () => {
       Authorization: "Bearer 81b64de2-c0ef-4d95-a066-6dacbaf6f427",
       },
   })
-  .then((res) => {
+  .then(async (res) => {
     data = res.data;
     console.log(data);
 
@@ -77,12 +75,14 @@ button.onclick = async () => {
     };
     firebase.initializeApp(firebaseConfig);
     const db = firebase.database();
+    const streamObj = await astterlive.methods.getStream(id).call({from: accounts[0]});
     
-      db.ref("live_streams/"+id).set({
-        id,
-        name,
-        addr: accounts[0],
-      });
+    db.ref("live_streams/"+id).set({
+      id,
+      name,
+      addr: accounts[0],
+      cid: streamObj[4],
+    });
 
 
     session.on("close", () => {

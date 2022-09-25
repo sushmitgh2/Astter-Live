@@ -1,7 +1,7 @@
 var connectBtn = document.getElementById('connect')
 var astterlive, asttercore;
 
-const contract_address = "0x8b0188d3B5A83675081eE2DCf942F6DBdce32a88";
+const contract_address = "0x795A5291643354a371FCeb5ae770c2A821920839";
 var liveRow = document.getElementById('live');
 
 var firebaseConfig = {
@@ -78,7 +78,7 @@ var firebaseConfig = {
     var i = messages.id;
     var n = messages.name;
     var a = messages.addr.substring(0, 5) + "..." + messages.addr.substring(37, 42);
-    liveRow.innerHTML += `<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><div class="videoo"><div class="vid_thumbainl"><a href="single_video_page.html?id=${i}" title=""><img src="images/resources/vide4.png" alt=""></a> </div><!--vid_thumbnail end--> <div class="video_info"> <h3><a href="single_video_page.html?id=${i}" title="">${n}</a></h3> <h4><a href="Single_Channel_Home.html" title="">${a}</a> </h4> </div> </div><!--videoo end--> </div>`
+    liveRow.innerHTML += `<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><div class="videoo"><div class="vid_thumbainl"><a href="single_video_page.html?id=${i}" title=""><img src="https://ipfs.io/ipfs/${messages.cid}" alt=""></a> </div><!--vid_thumbnail end--> <div class="video_info"> <h3><a href="single_video_page.html?id=${i}" title="">${n}</a></h3> <h4><a href="Single_Channel_Home.html" title="">${a}</a> </h4> </div> </div><!--videoo end--> </div>`
     // append the message on the page
     document.getElementById("messages").innerHTML += message;
   });

@@ -1,5 +1,5 @@
 var astterlive, astterliveabi;
-const contract_address = "0x8b0188d3B5A83675081eE2DCf942F6DBdce32a88";
+const contract_address = "0x795A5291643354a371FCeb5ae770c2A821920839";
 var accounts, hasStream;
 
 var connectBtn = document.getElementById('connect');

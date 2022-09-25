@@ -3,8 +3,9 @@ var video_title = document.getElementById('video-title');
 var save = document.getElementById('save');
 
 var astterlive, astterliveabi;
-const contract_address = "0x8b0188d3B5A83675081eE2DCf942F6DBdce32a88";
+const contract_address = "0x795A5291643354a371FCeb5ae770c2A821920839";
 var accounts;
+var img;
 
 async function load() {
     web3 = new Web3(window.ethereum);
@@ -80,27 +81,45 @@ save.addEventListener('click', async () => {
         var res = response.data;
         console.log(res);
 
-        const streamData = [res['name'], res['id']];
-        const profiles = res['profiles'];
-        const profileData = [[profiles[0].name, profiles[0].bitrate+"", profiles[0].fps+"", profiles[0].width+"", profiles[0].height+""], [profiles[1].name, profiles[1].bitrate+"", profiles[1].fps+"", profiles[1].width+"", profiles[1].height+""], [profiles[2].name, profiles[2].bitrate+"", profiles[2].fps+"", profiles[2].width+"", profiles[2].height+""]]
+        var streamData = [res['name'], res['id'], document.getElementById('desc').value];
+        var profiles = res['profiles'];
+        var profileData = [[profiles[0].name, profiles[0].bitrate+"", profiles[0].fps+"", profiles[0].width+"", profiles[0].height+""], [profiles[1].name, profiles[1].bitrate+"", profiles[1].fps+"", profiles[1].width+"", profiles[1].height+""], [profiles[2].name, profiles[2].bitrate+"", profiles[2].fps+"", profiles[2].width+"", profiles[2].height+""]]
         
-        const fnData = await astterlive.methods.createStream(streamData, profileData).encodeABI();
+        axios({
+            method: 'post',
+            url: 'https://api.nft.storage/upload',
+            data: img[0],
+            headers: {'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweEQ4ZWY0RGY5ZDhFNjY1MWEwNTFBMzQxYjRGNDMzM0ZERWRmNjIyOTAiLCJpc3MiOiJuZnQtc3RvcmFnZSIsImlhdCI6MTY1ODAzMDAxMjIyNSwibmFtZSI6IkVhcnRoUmFpc2VyIn0.go2tdDF2TJ4Se7qrD3vasa8mgjVRqlvIWRbUBEkvQS4' }
+            })
+            .then(async function (response) {
+                //handle success
+                currentCID = response.data.value.cid;
+                console.log(currentCID);
+                alert("Your token has been added to IPFS. CID: "+currentCID);
 
-        web3.eth.sendTransaction({
-            from: accounts[0],
-            to: contract_address,
-            data: fnData,
-        })
-        .on('transactionHash', function(hash){
-            console.log(hash);
-        })
-        .on('receipt', function(receipt){
-            console.log(receipt);
-            window.open('/stream_page.html?id='+res['id'], "_self");
-        })
-        .on('confirmation', function(confirmationNumber, receipt){ 
-        })
-        .on('error', console.error);
+                streamData = [...streamData, currentCID];
+                const fnData = await astterlive.methods.createStream(streamData, document.getElementById('select').value, profileData).encodeABI();
+
+                web3.eth.sendTransaction({
+                    from: accounts[0],
+                    to: contract_address,
+                    data: fnData,
+                })
+                .on('transactionHash', function(hash){
+                    console.log(hash);
+                })
+                .on('receipt', function(receipt){
+                    console.log(receipt);
+                    window.open('/stream_page.html?id='+res['id'], "_self");
+                })
+                .on('confirmation', function(confirmationNumber, receipt){ 
+                })
+                .on('error', console.error);
+            })
+            .catch(function (response) {
+                console.log(response);
+            });
+
     });
 
 })
