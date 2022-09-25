@@ -97,6 +97,8 @@
 								<iframe
 									id="video_source"
 									src=""
+									height = 100%
+									width = 100%
 									frameborder="0"
 									allowfullscreen
 									allow="autoplay; encrypted-media; picture-in-picture"
@@ -136,9 +138,9 @@
 							<div class="clearfix"></div>
 							<div class="vcp_inf pc">
 								
-								<form>
-									<input type="text" placeholder="Chat Here">
-									
+								<form id="message-form">
+									<input id="message-input" type="text" placeholder="Chat Here">
+									<button style="margin-top:40%" id="message-btn" type="submit">Send</button>
 								</form>
 								<div class="clearfix"></div>
 								<div class="rt-cmt">
@@ -149,10 +151,6 @@
 							<ul class="cmn-lst" id="messages">
 								
 							</ul><!--comment list end-->
-							<center><form id="message-form">
-								<input id="message-input" type="text" />
-								<button id="message-btn" type="submit">Send</button>
-							</form></center>
 						</div>
 						
 					</div><!--side-bar end-->
