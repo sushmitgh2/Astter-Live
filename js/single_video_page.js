@@ -73,7 +73,7 @@ var firebaseConfig = {
 
   const db = firebase.database();
   document.getElementById("message-form").addEventListener("submit", sendMessage);
-
+ 
   function sendMessage(e) {
     e.preventDefault();
   
