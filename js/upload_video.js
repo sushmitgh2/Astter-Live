@@ -1,5 +1,5 @@
 var astterlive, astterliveabi;
-const contract_address = "0x11C8Fa38a4302a476088d95b51918A341b19C2c6";
+const contract_address = "0xd4708cCC178b698cC883aFaCA9A6f2Ef1224Ee6c";
 var accounts, hasStream;
 
 var connectBtn = document.getElementById('connect');
@@ -24,10 +24,6 @@ async function load() {
 
     hasStream = await astterlive.methods.hasStream(accounts[0]).call({from: accounts[0]});
     console.log(hasStream);
-
-    if(await hasStream){
-        alert("You already have a stream created. Start a stream instead?");
-    }
 }
 
 startStream.addEventListener('click', (e) => {

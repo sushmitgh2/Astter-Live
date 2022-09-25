@@ -1,8 +1,8 @@
 var astterlive, asttercore;
-const contract_address = "0x11C8Fa38a4302a476088d95b51918A341b19C2c6";
+const contract_address = "0xd4708cCC178b698cC883aFaCA9A6f2Ef1224Ee6c";
 
 var source = document.getElementById('video_source');
-var connectBtn = document.getElementById('connect')
+var connectBtn = document.getElementById('connect');
 
 async function load() {
     web3 = new Web3(window.ethereum);
@@ -27,6 +27,11 @@ async function load() {
     var id = url.searchParams.get("id");
     console.log(id);
 
+    /*var streamer = await astterlive.functions.getStreamer(id).call({from: accounts[0]});
+    console.log(streamer);
+
+    document.getElementById('streamer').innerText = streamer;*/
+
     axios
     .get("https://livepeer.studio/api/stream/"+id, {
         headers: {
@@ -38,6 +43,7 @@ async function load() {
         console.log(data);
 
         source.src = "https://lvpr.tv?v="+data['playbackId'];
+        document.getElementById('name').innerText = data['name'];
     })
     .catch((error) => {
         console.log(error);

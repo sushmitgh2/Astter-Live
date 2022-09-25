@@ -1,8 +1,18 @@
 var connectBtn = document.getElementById('connect')
 var astterlive, asttercore;
 
-const contract_address = "0x11C8Fa38a4302a476088d95b51918A341b19C2c6";
+const contract_address = "0xd4708cCC178b698cC883aFaCA9A6f2Ef1224Ee6c";
 var liveRow = document.getElementById('live');
+
+var firebaseConfig = {
+    apiKey: "AIzaSyBiT5tAohBkKSdufROFxE3hnnplpDhgeHE",
+    authDomain: "aster-live.firebaseapp.com",
+    databaseURL: "https://aster-live-default-rtdb.firebaseio.com",
+    projectId: "aster-live",
+    storageBucket: "aster-live.appspot.com",
+    messagingSenderId:"517213286156",
+    appId: "1:517213286156:web:d2d1a3757cc2af92dfe329",
+};
 
 connectBtn.addEventListener('click', async() => {
 
