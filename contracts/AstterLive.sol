@@ -13,6 +13,9 @@ contract AstterLive{
     struct Stream {
         string streamName;
         string streamId;
+        string description;
+        uint category;
+        string thumbnail;
     }
 
     mapping(address => bool) streamCreated;
@@ -33,9 +36,9 @@ contract AstterLive{
 
     event StreamCreated(address indexed user, string indexed streamName);
 
-    function createStream(string[] memory streamData, string[][] memory profiles) external{
+    function createStream(string[] memory streamData, uint category, string[][] memory profiles) external{
         require(!hasStream(msg.sender), "User has an active stream. Please fetch streamId and create a session");
-        userStream[msg.sender] = Stream(streamData[0], streamData[1]);
+        userStream[msg.sender] = Stream(streamData[0], streamData[1], streamData[2], category, streamData[3]);
         streamIdToUser[streamData[1]] = msg.sender;
 
         Profile[] storage prof = userProfiles[msg.sender];
@@ -49,8 +52,12 @@ contract AstterLive{
         emit StreamCreated(msg.sender, streamData[0]);
     }
 
-    function getStreamer(string memory streamId) external view returns(address) {
+    function getStreamer(string memory streamId) public  view returns(address) {
         return streamIdToUser[streamId];
+    }
+
+    function getStream(string memory streamId) public view returns(Stream memory) {
+        return userStream[getStreamer(streamId)];
     }
 
     function getStreamforUser() external view returns(Stream memory) {

@@ -25,6 +25,19 @@ async function load() {
     console.log(accounts);
 }
 
+async function previewImage() {
+    img = uploadInput.files;
+    if(img.length > 0) {
+        var fileReader = new FileReader();
+
+        fileReader.onload = function (event) {
+            document.getElementById('preview').setAttribute("src", event.target.result);
+        }
+
+        fileReader.readAsDataURL(img[0]);
+    }
+}
+
 load();
 
 save.addEventListener('click', async () => {
