@@ -62,7 +62,7 @@ const loadUI = async() => {
     var name = "sample1";
     var addr = "0x0eE...69D7";
     liveRow.innerHTML += `<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><div class="videoo"><div class="vid_thumbainl"><a href="single_video_page.html?id=${id}" title=""><img src="images/resources/vide4.png" alt=""></a> </div><!--vid_thumbnail end--> <div class="video_info"> <h3><a href="single_video_page.html?id=${id}" title="">${name}</a></h3> <h4><a href="Single_Channel_Home.html" title="">${addr}</a> </h4> </div> </div><!--videoo end--> </div>`
-    liveRow.innerHTML += `<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><div class="videoo"><div class="vid_thumbainl"><a href="single_video_page.html?id=${id}" title=""><img src="images/resources/vide4.png" alt=""></a> </div><!--vid_thumbnail end--> <div class="video_info"> <h3><a href="single_video_page.html?id=${id}" title="">${name}</a></h3> <h4><a href="Single_Channel_Home.html" title="">${addr}</a> </h4> </div> </div><!--videoo end--> </div>`
+    //liveRow.innerHTML += `<div class="col-lg-3 col-md-6 col-sm-6 col-6 full_wdth"><div class="videoo"><div class="vid_thumbainl"><a href="single_video_page.html?id=${id}" title=""><img src="images/resources/vide4.png" alt=""></a> </div><!--vid_thumbnail end--> <div class="video_info"> <h3><a href="single_video_page.html?id=${id}" title="">${name}</a></h3> <h4><a href="Single_Channel_Home.html" title="">${addr}</a> </h4> </div> </div><!--videoo end--> </div>`
 }
 
 loadUI();
