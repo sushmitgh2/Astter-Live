@@ -13,7 +13,7 @@ async function load() {
         connectBtn.innerText = accounts[0].substring(0,4) + "..." +accounts[0].substring(38, 42);
     }
 
-    await fetch('../build/contracts/AstterLive.json')
+    await fetch('AstterLive.json')
         .then(response => response.json())
         .then(data => {
             astterliveabi = data.abi;
