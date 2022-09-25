@@ -32,7 +32,7 @@ button.onclick = () => {
   axios
   .get("https://livepeer.studio/api/stream/"+id, {
       headers: {
-      Authorization: "Bearer e608f0f9-338f-431a-8538-a798b2d8c8f5",
+      Authorization: "Bearer 81b64de2-c0ef-4d95-a066-6dacbaf6f427",
       },
   })
   .then((res) => {

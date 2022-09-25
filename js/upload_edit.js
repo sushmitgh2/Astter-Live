@@ -30,7 +30,7 @@ load();
 save.addEventListener('click', async () => {
     const headers = {
         'Content-Type': 'application/json',
-        'Authorization': 'Bearer e608f0f9-338f-431a-8538-a798b2d8c8f5',
+        'Authorization': 'Bearer 81b64de2-c0ef-4d95-a066-6dacbaf6f427',
     }
 
     const data = {
