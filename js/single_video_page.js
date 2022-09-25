@@ -69,13 +69,7 @@ var firebaseConfig = {
 
 
   const db = firebase.database();
-
-
-
-
-
   document.getElementById("message-form").addEventListener("submit", sendMessage);
-
 
   function sendMessage(e) {
     e.preventDefault();
@@ -103,7 +97,6 @@ var firebaseConfig = {
   }
 
   const fetchChat = db.ref("messages/"+id);
-
 
   fetchChat.on("child_added", function (snapshot) {
     const messages = snapshot.val();
